@@ -72,33 +72,23 @@ export default async function ReleasePage({ params }: ReleasePageProps) {
     { label: "Status", value: STATUS_LABELS[entry.status] },
   ];
 
-  if (model) {
-    facts.push({ label: "Access", value: ACCESS_LABELS[model.access] });
-    if (model.license) facts.push({ label: "License", value: model.license });
-    if (model.parameterCount) {
-      facts.push({ label: "Parameters", value: model.parameterCount });
-    }
-    if (model.contextWindow) {
-      facts.push({
-        label: "Context",
-        value: `${formatContextWindow(model.contextWindow)} tokens`,
-      });
-    }
-    if (model.modalities.length > 0) {
-      facts.push({
-        label: "Modalities",
-        value: formatModalities(model.modalities),
-      });
-    }
-    if (model.pricing) {
-      facts.push({ label: "Pricing", value: model.pricing });
-}
-  }
+ 
 
-  facts.push({
-    label: "Last verified",
-    value: formatIsoDate(entry.lastVerified),
-  });
+  if (model.architecture) {
+  facts.push({ label: "Architecture", value: model.architecture });
+}
+
+if (model.pricingDetail) {
+  const parts: string[] = [];
+  if (model.pricingDetail.input) parts.push(`Input ${model.pricingDetail.input}`);
+  if (model.pricingDetail.output) parts.push(`Output ${model.pricingDetail.output}`);
+  if (model.pricingDetail.note) parts.push(model.pricingDetail.note);
+  if (parts.length > 0) {
+    facts.push({ label: "Pricing", value: parts.join(" · ") });
+  }
+} else if (model.pricing) {
+  facts.push({ label: "Pricing", value: model.pricing });
+}
 
   return (
     <main className="mx-auto w-full max-w-4xl flex-1 px-6 py-10 sm:py-14">
@@ -141,6 +131,35 @@ export default async function ReleasePage({ params }: ReleasePageProps) {
     <p className="mt-2 text-sm leading-relaxed text-pretty text-muted-foreground">
       {model.whyItMatters}
     </p>
+  </section>
+) : null}
+
+{model?.benchmarks && model.benchmarks.length > 0 ? (
+  <section className="mt-8 max-w-2xl" aria-labelledby="benchmarks-heading">
+    <h2 id="benchmarks-heading" className="text-sm font-medium tracking-tight">
+      Selected results
+    </h2>
+    <p className="mt-1 text-xs text-muted-foreground">
+      High-signal scores only. Not a full leaderboard.
+    </p>
+    <dl className="mt-4 divide-y divide-border/80 border-y border-border/80">
+      {model.benchmarks.map((b) => (
+        <div
+          key={b.name}
+          className="grid grid-cols-1 gap-1 py-3 sm:grid-cols-[10rem_1fr] sm:gap-6"
+        >
+          <dt className="text-xs text-muted-foreground">{b.name}</dt>
+          <dd className="text-sm">
+            {b.score}
+            {b.source ? (
+              <span className="ml-2 text-xs text-muted-foreground">
+                ({b.source})
+              </span>
+            ) : null}
+          </dd>
+        </div>
+      ))}
+    </dl>
   </section>
 ) : null}
 

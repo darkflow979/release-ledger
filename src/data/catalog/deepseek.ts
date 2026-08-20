@@ -2,36 +2,6 @@ import type { Entry } from "@/types/entry";
 
 export const deepseekEntries: readonly Entry[] = [
   {
-    id: "deepseek-v4-pro",
-    slug: "deepseek-v4-pro",
-    type: "model",
-    name: "DeepSeek-V4-Pro",
-    organization: "DeepSeek",
-    releaseDate: "2026-04-24",
-    status: "ga",
-    access: "open-weights",
-    license: "MIT",
-    contextWindow: 1_000_000,
-    parameterCount: "1.6T MoE (49B active)",
-    modalities: ["text", "code"],
-    summary:
-      "Flagship of the DeepSeek-V4 family, previewed 24 Apr 2026 with V4-Flash and marked GA on 13 Aug 2026. 1.6T total / 49B active MoE with 1M-token context, dual thinking modes, MIT weights.",
-    links: [
-      {
-        label: "Announcement",
-        href: "https://api-docs.deepseek.com/news/news260424",
-        kind: "announcement",
-      },
-      {
-        label: "Weights",
-        href: "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
-        kind: "weights",
-      },
-    ],
-    tags: ["open-weights", "moe", "long-context", "agents"],
-    lastVerified: "2026-08-20",
-  },
-  {
     id: "deepseek-v3-1",
     slug: "deepseek-v3-1",
     type: "model",
@@ -125,23 +95,41 @@ export const deepseekEntries: readonly Entry[] = [
     lastVerified: "2026-08-20",
   },
 {
-  id: "deepseek-v4-flash",
-  slug: "deepseek-v4-flash",
+  id: "deepseek-v4-pro",
+  slug: "deepseek-v4-pro",
   type: "model",
-  name: "DeepSeek-V4-Flash",
+  name: "DeepSeek-V4-Pro",
   organization: "DeepSeek",
-  releaseDate: "2026-07-31",
+  releaseDate: "2026-04-24",
   status: "ga",
   access: "open-weights",
   contextWindow: 1_000_000,
-  parameterCount: "284B MoE (≈13B active)",
+  parameterCount: "1.6T MoE (≈49B active)",
+  architecture: "MoE with Compressed Sparse Attention",
   modalities: ["text"],
   license: "MIT",
-  pricing: "Very low (Flash tier)",
+  pricing: "$0.435 / $0.87 per 1M (off-peak varies)",
+  pricingDetail: {
+    input: "$0.435 / 1M",
+    output: "$0.87 / 1M",
+    note: "peak/off-peak pricing introduced later",
+  },
   summary:
-    "Efficient sibling of DeepSeek-V4-Pro. 284B total parameters with ~13B active, 1-million-token context, and MIT-licensed open weights. Positioned for high-throughput and cost-sensitive workloads while retaining strong coding and reasoning performance.",
+    "DeepSeek's flagship 1.6-trillion-parameter Mixture-of-Experts model (49B active). Supports a 1-million-token context window and strong coding/agentic performance. Open weights released under the MIT license. Official GA build (0813) arrived in August 2026.",
   whyItMatters:
-    "Delivers a large fraction of V4-Pro capability at significantly lower inference cost. Important for anyone running high-volume or local agent workloads.",
+    "One of the strongest open-weight coding and agent models available. MIT license + strong long-context performance make it highly practical for both research and production use.",
+  benchmarks: [
+    {
+      name: "SWE-bench Verified",
+      score: "≈80.6%",
+      source: "vendor / independent reports",
+    },
+    {
+      name: "Terminal-Bench 2.1",
+      score: "87.9 (0813)",
+      source: "vendor-reported",
+    },
+  ],
   links: [
     {
       label: "Announcement",
@@ -150,11 +138,16 @@ export const deepseekEntries: readonly Entry[] = [
     },
     {
       label: "Hugging Face",
-      href: "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
+      href: "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
       kind: "weights",
     },
+    {
+      label: "API Docs",
+      href: "https://api-docs.deepseek.com/",
+      kind: "docs",
+    },
   ],
-  tags: ["open-weights", "moe", "efficient", "long-context", "chinese"],
+  tags: ["frontier", "open-weights", "moe", "long-context", "coding", "chinese"],
   lastVerified: "2026-08-20",
-},
-];
+  },   // ← end of the last model object
+];     // ← end of the array

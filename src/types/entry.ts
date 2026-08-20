@@ -69,6 +69,24 @@ export type ModelEntry = EntryBase & {
   /** Human-readable size (e.g. "671B MoE (37B active)"). */
   parameterCount?: string;
   modalities: readonly Modality[];
+  /** Short note on why this release matters (1–2 sentences). */
+  whyItMatters?: string;
+  /** Simple pricing string (kept for backward compatibility). */
+  pricing?: string;
+  /** Structured pricing when available. */
+  pricingDetail?: {
+    input?: string;
+    output?: string;
+    note?: string;
+  };
+  /** Short architecture note (e.g. "MoE", "Dense", "Hybrid Mamba-Transformer"). */
+  architecture?: string;
+  /** Selected high-signal benchmarks only. Keep very selective. */
+  benchmarks?: readonly {
+    name: string;
+    score: string;
+    source?: string;
+  }[];
 };
 
 export type Entry = ModelEntry;
@@ -76,18 +94,3 @@ export type Entry = ModelEntry;
 export function isModelEntry(entry: Entry): entry is ModelEntry {
   return entry.type === "model";
 }
-
-export type ModelEntry = EntryBase & {
-  type: "model";
-  access: AccessMode;
-  license?: string;
-  /** Context window in tokens, when published. */
-  contextWindow?: number;
-  /** Human-readable size (e.g. "671B MoE (37B active)"). */
-  parameterCount?: string;
-  modalities: readonly Modality[];
-  /** Short note on why this release matters (1–2 sentences). */
-  whyItMatters?: string;
-  /** Rough input / output pricing when publicly stated (e.g. "$0.50 / $1.50 per 1M"). */
-  pricing?: string;
-};
