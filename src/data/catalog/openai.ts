@@ -1,0 +1,198 @@
+import type { Entry } from "@/types/entry";
+
+export const openaiEntries: readonly Entry[] = [
+  {
+    id: "gpt-5-6",
+    slug: "gpt-5-6",
+    type: "model",
+    name: "GPT-5.6",
+    organization: "OpenAI",
+    releaseDate: "2026-07-09",
+    status: "ga",
+    access: "closed-api",
+    modalities: ["text", "image", "code"],
+    summary:
+      "OpenAI's GPT-5.6 family, generally available after a limited preview. Introduces named tiers Sol (flagship), Terra, and Luna, with Sol positioned for coding, knowledge work, and science.",
+    links: [
+      {
+        label: "Announcement",
+        href: "https://openai.com/index/gpt-5-6/",
+        kind: "announcement",
+      },
+    ],
+    tags: ["frontier", "reasoning", "coding"],
+    lastVerified: "2026-08-20",
+  },
+  {
+    id: "gpt-5-2",
+    slug: "gpt-5-2",
+    type: "model",
+    name: "GPT-5.2",
+    organization: "OpenAI",
+    releaseDate: "2025-12-11",
+    status: "ga",
+    access: "closed-api",
+    modalities: ["text", "image", "code"],
+    summary:
+      "Upgrade in the GPT-5 series for professional knowledge work and long-running agents, released as Instant, Thinking, and Pro variants in ChatGPT and the API.",
+    links: [
+      {
+        label: "Announcement",
+        href: "https://openai.com/index/introducing-gpt-5-2/",
+        kind: "announcement",
+      },
+    ],
+    tags: ["frontier", "agents", "knowledge-work"],
+    lastVerified: "2026-08-20",
+  },
+  {
+    id: "gpt-5",
+    slug: "gpt-5",
+    type: "model",
+    name: "GPT-5",
+    organization: "OpenAI",
+    releaseDate: "2025-08-07",
+    status: "ga",
+    access: "closed-api",
+    contextWindow: 400_000,
+    modalities: ["text", "image"],
+    summary:
+      "OpenAI's flagship GPT-5 model, unifying reasoning and multimodal understanding in a single system available through ChatGPT and the API.",
+    links: [
+      {
+        label: "Announcement",
+        href: "https://openai.com/index/introducing-gpt-5/",
+        kind: "announcement",
+      },
+      {
+        label: "Product",
+        href: "https://openai.com/gpt-5/",
+        kind: "docs",
+      },
+    ],
+    tags: ["frontier", "reasoning", "multimodal"],
+    lastVerified: "2026-08-20",
+  },
+  {
+    id: "gpt-oss-120b",
+    slug: "gpt-oss-120b",
+    type: "model",
+    name: "gpt-oss-120b",
+    organization: "OpenAI",
+    releaseDate: "2025-08-05",
+    status: "ga",
+    access: "open-weights",
+    license: "Apache-2.0",
+    contextWindow: 131_072,
+    parameterCount: "120B MoE",
+    modalities: ["text", "code"],
+    summary:
+      "OpenAI's 120B open-weight reasoning model, released with gpt-oss-20b under Apache 2.0 for self-hosting, tool use, and agentic workflows.",
+    links: [
+      {
+        label: "Announcement",
+        href: "https://openai.com/index/introducing-gpt-oss/",
+        kind: "announcement",
+      },
+      {
+        label: "Weights",
+        href: "https://huggingface.co/openai/gpt-oss-120b",
+        kind: "weights",
+      },
+    ],
+    tags: ["open-weights", "reasoning", "moe"],
+    lastVerified: "2026-08-20",
+  },
+  {
+    id: "o3",
+    slug: "o3",
+    type: "model",
+    name: "OpenAI o3",
+    organization: "OpenAI",
+    releaseDate: "2025-04-16",
+    status: "ga",
+    access: "closed-api",
+    contextWindow: 200_000,
+    modalities: ["text", "image", "code"],
+    summary:
+      "Successor to the o1 reasoning series, released with o4-mini. OpenAI stated ChatGPT access would end on 26 Aug 2026 after a sunset period; API availability was unchanged at announcement.",
+    links: [
+      {
+        label: "Announcement",
+        href: "https://openai.com/index/introducing-o3-and-o4-mini/",
+        kind: "announcement",
+      },
+    ],
+    tags: ["frontier", "reasoning"],
+    lastVerified: "2026-08-20",
+  },
+  {
+    id: "gpt-4-1",
+    slug: "gpt-4-1",
+    type: "model",
+    name: "GPT-4.1",
+    organization: "OpenAI",
+    releaseDate: "2025-04-14",
+    status: "ga",
+    access: "closed-api",
+    contextWindow: 1_000_000,
+    modalities: ["text", "image", "code"],
+    summary:
+      "API-first GPT-4.1 family (including mini and nano) with up to 1M-token context, aimed at coding and instruction following. ChatGPT access was later retired; API shutdown was scheduled for 23 Oct 2026.",
+    links: [
+      {
+        label: "Announcement",
+        href: "https://openai.com/index/gpt-4-1/",
+        kind: "announcement",
+      },
+    ],
+    tags: ["coding", "long-context"],
+    lastVerified: "2026-08-20",
+  },
+  {
+    id: "o1",
+    slug: "o1",
+    type: "model",
+    name: "OpenAI o1",
+    organization: "OpenAI",
+    releaseDate: "2024-12-05",
+    status: "deprecated",
+    access: "closed-api",
+    contextWindow: 200_000,
+    modalities: ["text", "image", "code"],
+    summary:
+      "Generally available o1 reasoning model, following the September 2024 o1-preview. Trained to spend more test-time compute on chain-of-thought before answering. API shutdown announced for 23 Oct 2026.",
+    links: [
+      {
+        label: "Preview announcement",
+        href: "https://openai.com/index/introducing-openai-o1-preview/",
+        kind: "announcement",
+      },
+    ],
+    tags: ["reasoning", "landmark"],
+    lastVerified: "2026-08-20",
+  },
+  {
+    id: "gpt-4o",
+    slug: "gpt-4o",
+    type: "model",
+    name: "GPT-4o",
+    organization: "OpenAI",
+    releaseDate: "2024-05-13",
+    status: "deprecated",
+    access: "closed-api",
+    contextWindow: 128_000,
+    modalities: ["text", "image", "audio"],
+    summary:
+      "Omni-modal GPT-4o, accepting text, image, and audio in a single model. Became the ChatGPT default in 2024. Retired from ChatGPT in February 2026; API shutdown announced for 23 Oct 2026.",
+    links: [
+      {
+        label: "Announcement",
+        href: "https://openai.com/index/hello-gpt-4o/",
+        kind: "announcement",
+      },
+    ],
+    tags: ["frontier", "multimodal", "landmark"],
+    lastVerified: "2026-08-20",
+  },
+];
