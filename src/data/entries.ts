@@ -7,6 +7,8 @@ import { openaiEntries } from "@/data/catalog/openai";
 import { otherEntries } from "@/data/catalog/other";
 import { qwenEntries } from "@/data/catalog/qwen";
 import { xaiEntries } from "@/data/catalog/xai";
+import { moonshotEntries } from "./catalog/moonshot";
+import { nvidiaEntries } from "./catalog/nvidia";
 import type { Entry } from "@/types/entry";
 
 /**
@@ -31,6 +33,8 @@ import type { Entry } from "@/types/entry";
  * - Gemma 4 sizes/context: vary by checkpoint; omitted here
  */
 export const entries: readonly Entry[] = [
+...nvidiaEntries,
+...moonshotEntries,
   ...openaiEntries,
   ...anthropicEntries,
   ...googleEntries,
