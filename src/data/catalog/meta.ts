@@ -121,4 +121,36 @@ export const metaEntries: readonly Entry[] = [
     tags: ["open-weights", "landmark"],
     lastVerified: "2026-08-20",
   },
+{
+  id: "muse-glimmer-30b",
+  slug: "muse-glimmer-30b",
+  type: "model",
+  name: "Muse Glimmer 30B",
+  organization: "Meta",
+  releaseDate: "2026-08-10",
+  status: "ga",
+  access: "open-weights",
+  contextWindow: 131_072,
+  parameterCount: "≈30B dense (incl. vision encoder)",
+  modalities: ["text", "image"],
+  license: "Apache 2.0",
+  summary:
+    "Meta Superintelligence Labs' 30B open-weight agentic model, designed to run on a single consumer GPU. Released under Apache 2.0 with strong emphasis on local tool use, coding, and always-on agents. Includes a perception encoder for image input.",
+  whyItMatters:
+    "Meta's return to fully permissive open weights (Apache 2.0) after the more restricted Llama community licenses. Practical size for local deployment while targeting agentic workloads.",
+  links: [
+    {
+      label: "Announcement",
+      href: "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+      kind: "announcement",
+    },
+    {
+      label: "Hugging Face",
+      href: "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+      kind: "weights",
+    },
+  ],
+  tags: ["open-weights", "agents", "local", "multimodal", "apache-2.0"],
+  lastVerified: "2026-08-20",
+},
 ];

@@ -124,4 +124,37 @@ export const deepseekEntries: readonly Entry[] = [
     tags: ["open-weights", "moe", "landmark"],
     lastVerified: "2026-08-20",
   },
+{
+  id: "deepseek-v4-flash",
+  slug: "deepseek-v4-flash",
+  type: "model",
+  name: "DeepSeek-V4-Flash",
+  organization: "DeepSeek",
+  releaseDate: "2026-07-31",
+  status: "ga",
+  access: "open-weights",
+  contextWindow: 1_000_000,
+  parameterCount: "284B MoE (≈13B active)",
+  modalities: ["text"],
+  license: "MIT",
+  pricing: "Very low (Flash tier)",
+  summary:
+    "Efficient sibling of DeepSeek-V4-Pro. 284B total parameters with ~13B active, 1-million-token context, and MIT-licensed open weights. Positioned for high-throughput and cost-sensitive workloads while retaining strong coding and reasoning performance.",
+  whyItMatters:
+    "Delivers a large fraction of V4-Pro capability at significantly lower inference cost. Important for anyone running high-volume or local agent workloads.",
+  links: [
+    {
+      label: "Announcement",
+      href: "https://api-docs.deepseek.com/news/news260424",
+      kind: "announcement",
+    },
+    {
+      label: "Hugging Face",
+      href: "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
+      kind: "weights",
+    },
+  ],
+  tags: ["open-weights", "moe", "efficient", "long-context", "chinese"],
+  lastVerified: "2026-08-20",
+},
 ];

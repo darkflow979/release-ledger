@@ -166,4 +166,28 @@ export const googleEntries: readonly Entry[] = [
     tags: ["long-context", "multimodal", "landmark"],
     lastVerified: "2026-08-20",
   },
+{
+  id: "gemini-3-7-flash",
+  slug: "gemini-3-7-flash",
+  type: "model",
+  name: "Gemini 3.7 Flash",
+  organization: "Google DeepMind",
+  releaseDate: "2026-08-13",
+  status: "ga",
+  access: "closed-api",
+  modalities: ["text", "image", "code"],
+  summary:
+    "Google's fast workhorse model in the Gemini 3.x line, positioned for coding and agentic workloads. Released with significantly lower introductory pricing than its predecessor.",
+  whyItMatters:
+    "Continues Google's rapid Flash iteration cadence with a clear focus on cost-efficient coding and agent performance. Important competitive move in the high-volume API segment.",
+  links: [
+    {
+      label: "Announcement",
+      href: "https://deepmind.google/technologies/gemini/",
+      kind: "announcement",
+    },
+  ],
+  tags: ["frontier", "coding", "agents", "efficient"],
+  lastVerified: "2026-08-20",
+},
 ];
