@@ -90,6 +90,9 @@ export default async function ReleasePage({ params }: ReleasePageProps) {
         value: formatModalities(model.modalities),
       });
     }
+    if (model.pricing) {
+      facts.push({ label: "Pricing", value: model.pricing });
+}
   }
 
   facts.push({
@@ -129,6 +132,17 @@ export default async function ReleasePage({ params }: ReleasePageProps) {
       <p className="mt-8 max-w-2xl text-sm leading-relaxed text-pretty text-muted-foreground">
         {entry.summary}
       </p>
+
+{model?.whyItMatters ? (
+  <section className="mt-8 max-w-2xl" aria-labelledby="why-heading">
+    <h2 id="why-heading" className="text-sm font-medium tracking-tight">
+      Why it matters
+    </h2>
+    <p className="mt-2 text-sm leading-relaxed text-pretty text-muted-foreground">
+      {model.whyItMatters}
+    </p>
+  </section>
+) : null}
 
       <section className="mt-10" aria-labelledby="facts-heading">
         <h2 id="facts-heading" className="text-sm font-medium tracking-tight">
