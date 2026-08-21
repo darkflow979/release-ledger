@@ -2,69 +2,44 @@ import type { Entry } from "@/types/entry";
 
 export const deepseekEntries: readonly Entry[] = [
   {
-    id: "deepseek-v3-1",
-    slug: "deepseek-v3-1",
-    type: "model",
-    name: "DeepSeek-V3.1",
-    organization: "DeepSeek",
-    releaseDate: "2025-08-21",
-    status: "ga",
-    access: "open-weights",
-    license: "MIT",
-    parameterCount: "671B MoE (37B active)",
-    modalities: ["text", "code"],
-    summary:
-      "V3.1 unified thinking and non-thinking into one checkpoint (API aliases deepseek-chat and deepseek-reasoner). Followed by V3.1-Terminus on 22 Sep 2025. Open weights remain available after V4 replaced it on the official API.",
-    links: [
-      {
-        label: "Announcement",
-        href: "https://api-docs.deepseek.com/updates/",
-        kind: "announcement",
-      },
-      {
-        label: "Weights",
-        href: "https://huggingface.co/deepseek-ai/DeepSeek-V3.1",
-        kind: "weights",
-      },
-    ],
-    tags: ["open-weights", "moe", "hybrid"],
-    lastVerified: "2026-08-20",
+  id: "deepseek-v4-flash",
+  slug: "deepseek-v4-flash",
+  type: "model",
+  name: "DeepSeek-V4-Flash",
+  organization: "DeepSeek",
+  releaseDate: "2026-07-31",
+  status: "ga",
+  access: "open-weights",
+  contextWindow: 1_000_000,
+  parameterCount: "284B MoE (≈13B active)",
+  architecture: "MoE",
+  modalities: ["text"],
+  license: "MIT",
+  pricing: "Very low (Flash tier)",
+  pricingDetail: {
+    input: "Low",
+    output: "Low",
+    note: "Flash tier pricing",
   },
-  {
-    id: "deepseek-r1",
-    slug: "deepseek-r1",
-    type: "model",
-    name: "DeepSeek-R1",
-    organization: "DeepSeek",
-    releaseDate: "2025-01-20",
-    status: "ga",
-    access: "open-weights",
-    license: "MIT",
-    contextWindow: 128_000,
-    parameterCount: "671B MoE (37B active)",
-    modalities: ["text", "code"],
-    summary:
-      "DeepSeek's first-generation open-weight reasoning model, trained from DeepSeek-V3-Base with large-scale reinforcement learning and released under MIT.",
-    links: [
-      {
-        label: "Announcement",
-        href: "https://api-docs.deepseek.com/news/news250120",
-        kind: "announcement",
-      },
-      {
-        label: "Weights",
-        href: "https://huggingface.co/deepseek-ai/DeepSeek-R1",
-        kind: "weights",
-      },
-      {
-        label: "Paper",
-        href: "https://arxiv.org/abs/2501.12948",
-        kind: "paper",
-      },
-    ],
-    tags: ["open-weights", "reasoning", "moe"],
-    lastVerified: "2026-08-20",
-  },
+  summary:
+    "Efficient sibling of DeepSeek-V4-Pro. 284B total parameters with ~13B active, 1-million-token context, and MIT-licensed open weights. Positioned for high-throughput and cost-sensitive workloads while retaining strong coding and reasoning performance.",
+  whyItMatters:
+    "Delivers a large fraction of V4-Pro capability at significantly lower inference cost. Important for high-volume or local agent workloads.",
+  links: [
+    {
+      label: "Announcement",
+      href: "https://api-docs.deepseek.com/news/news260424",
+      kind: "announcement",
+    },
+    {
+      label: "Hugging Face",
+      href: "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
+      kind: "weights",
+    },
+  ],
+  tags: ["open-weights", "moe", "efficient", "long-context", "chinese"],
+  lastVerified: "2026-08-20",
+},
   {
     id: "deepseek-v3",
     slug: "deepseek-v3",

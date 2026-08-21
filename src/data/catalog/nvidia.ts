@@ -2,51 +2,6 @@ import type { Entry } from "@/types/entry";
 
 export const nvidiaEntries: readonly Entry[] = [
   {
-  id: "nemotron-3-5-lightning",
-  slug: "nemotron-3-5-lightning",
-  type: "model",
-  name: "Nemotron 3.5 Lightning",
-  organization: "NVIDIA",
-  releaseDate: "2026-08-11",
-  status: "ga",
-  access: "open-weights",
-  contextWindow: 1_000_000,
-  parameterCount: "30B MoE (≈3B active)",
-  architecture: "Hybrid Mamba-2 + MoE + Attention",
-  modalities: ["text"],
-  license: "OpenMDW-1.1",
-  summary:
-    "NVIDIA's efficient 30B-parameter Mixture-of-Experts model (≈3B active) designed for high-volume agentic workloads. Hybrid architecture with up to 1M context. Open weights under the OpenMDW-1.1 license, with training data and recipes also released.",
-  whyItMatters:
-    "Strong efficiency play from NVIDIA aimed at the execution layer of always-on agents. Practical size for local and edge deployment while retaining competitive agentic performance.",
-  benchmarks: [
-    {
-      name: "Artificial Analysis Intelligence Index",
-      score: "24",
-      source: "independent",
-    },
-  ],
-  links: [
-    {
-      label: "Announcement",
-      href: "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/",
-      kind: "announcement",
-    },
-    {
-      label: "Hugging Face",
-      href: "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
-      kind: "weights",
-    },
-    {
-      label: "Technical Blog",
-      href: "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
-      kind: "docs",
-    },
-  ],
-  tags: ["open-weights", "moe", "agents", "efficient", "nvidia"],
-  lastVerified: "2026-08-20",
-},
-{
   id: "nemotron-3-ultra",
   slug: "nemotron-3-ultra",
   type: "model",
@@ -57,6 +12,7 @@ export const nvidiaEntries: readonly Entry[] = [
   access: "open-weights",
   contextWindow: 1_000_000,
   parameterCount: "550B MoE (≈55B active)",
+  architecture: "Hybrid Mamba-Attention MoE",
   modalities: ["text"],
   license: "NVIDIA Open Model License / related open terms",
   summary:

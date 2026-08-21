@@ -144,29 +144,6 @@ export const googleEntries: readonly Entry[] = [
     lastVerified: "2026-08-20",
   },
   {
-    id: "gemini-1-5-pro",
-    slug: "gemini-1-5-pro",
-    type: "model",
-    name: "Gemini 1.5 Pro",
-    organization: "Google DeepMind",
-    releaseDate: "2024-02-15",
-    status: "deprecated",
-    access: "closed-api",
-    contextWindow: 1_048_576,
-    modalities: ["text", "image", "audio", "video", "code"],
-    summary:
-      "Gemini 1.5 Pro introduced a 1M-token context window (later 2M in the API) and a mixture-of-experts architecture. It was Google's first widely deployed long-context Gemini.",
-    links: [
-      {
-        label: "Announcement",
-        href: "https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/",
-        kind: "announcement",
-      },
-    ],
-    tags: ["long-context", "multimodal", "landmark"],
-    lastVerified: "2026-08-20",
-  },
-{
   id: "gemini-3-7-flash",
   slug: "gemini-3-7-flash",
   type: "model",
@@ -176,10 +153,12 @@ export const googleEntries: readonly Entry[] = [
   status: "ga",
   access: "closed-api",
   modalities: ["text", "image", "code"],
+  architecture: "Gemini Flash family",
   summary:
     "Google's fast workhorse model in the Gemini 3.x line, positioned for coding and agentic workloads. Released with significantly lower introductory pricing than its predecessor.",
   whyItMatters:
     "Continues Google's rapid Flash iteration cadence with a clear focus on cost-efficient coding and agent performance. Important competitive move in the high-volume API segment.",
+  pricing: "Introductory pricing (lower than 3.6 Flash)",
   links: [
     {
       label: "Announcement",
