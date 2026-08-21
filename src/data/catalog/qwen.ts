@@ -96,9 +96,20 @@ export const qwenEntries: readonly Entry[] = [
   status: "ga",
   access: "mixed",
   contextWindow: 1_000_000,
+  parameterCount: "2.4T MoE (≈95B active)",
+  architecture: "Sparse MoE",
   modalities: ["text", "image"],
+  license: "Custom (Qwen3.8-Max)",
+  pricing: "$2 / $6 per 1M tokens",
+  pricingDetail: {
+    input: "$2 / 1M",
+    output: "$6 / 1M",
+    note: "API pricing",
+  },
   summary:
-    "Alibaba's flagship Qwen3.8-Max model: 2.4-trillion-parameter sparse MoE with ~95B active parameters and a 1-million-token context window. Strong multilingual and agentic performance. Open weights for the large variant were released shortly after the API launch under a custom license.",
+    "Alibaba's flagship Qwen3.8-Max model: a 2.4-trillion-parameter sparse MoE with approximately 95B active parameters and a 1-million-token context window. Strong multilingual and agentic performance. Open weights for the large variant were released shortly after the API launch.",
+  whyItMatters:
+    "Major open-weight release at extreme scale from Alibaba. Continues the pattern of Chinese labs shipping frontier-class open models with very large context windows.",
   links: [
     {
       label: "Announcement",
@@ -114,8 +125,4 @@ export const qwenEntries: readonly Entry[] = [
   tags: ["frontier", "open-weights", "moe", "long-context", "multilingual", "chinese"],
   lastVerified: "2026-08-20",
 },
-    ],
-    tags: ["open-weights", "dense"],
-    lastVerified: "2026-08-20",
-  },
 ];

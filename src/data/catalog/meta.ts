@@ -91,36 +91,8 @@ export const metaEntries: readonly Entry[] = [
     tags: ["open-weights", "efficient"],
     lastVerified: "2026-08-20",
   },
-  {
-    id: "llama-3-1-405b",
-    slug: "llama-3-1-405b",
-    type: "model",
-    name: "Llama 3.1 405B",
-    organization: "Meta",
-    releaseDate: "2024-07-23",
-    status: "ga",
-    access: "open-weights",
-    license: "Llama 3.1 Community License",
-    contextWindow: 128_000,
-    parameterCount: "405B",
-    modalities: ["text", "code"],
-    summary:
-      "Meta's 405B dense Llama 3.1 model with a 128K context window, released with upgraded 8B and 70B siblings. At the time, the largest openly downloadable dense LLM.",
-    links: [
-      {
-        label: "Announcement",
-        href: "https://ai.meta.com/blog/meta-llama-3-1/",
-        kind: "announcement",
-      },
-      {
-        label: "Weights",
-        href: "https://huggingface.co/meta-llama/Llama-3.1-405B-Instruct",
-        kind: "weights",
-      },
-    ],
-    tags: ["open-weights", "landmark"],
-    lastVerified: "2026-08-20",
-  },
+  
+
 {
   id: "muse-glimmer-30b",
   slug: "muse-glimmer-30b",
@@ -132,12 +104,20 @@ export const metaEntries: readonly Entry[] = [
   access: "open-weights",
   contextWindow: 131_072,
   parameterCount: "≈30B dense (incl. vision encoder)",
+  architecture: "Dense Transformer + Perception Encoder",
   modalities: ["text", "image"],
   license: "Apache 2.0",
   summary:
     "Meta Superintelligence Labs' 30B open-weight agentic model, designed to run on a single consumer GPU. Released under Apache 2.0 with strong emphasis on local tool use, coding, and always-on agents. Includes a perception encoder for image input.",
   whyItMatters:
     "Meta's return to fully permissive open weights (Apache 2.0) after the more restricted Llama community licenses. Practical size for local deployment while targeting agentic workloads.",
+  benchmarks: [
+    {
+      name: "SWE-bench Verified",
+      score: "≈76%",
+      source: "vendor-reported",
+    },
+  ],
   links: [
     {
       label: "Announcement",
@@ -153,4 +133,5 @@ export const metaEntries: readonly Entry[] = [
   tags: ["open-weights", "agents", "local", "multimodal", "apache-2.0"],
   lastVerified: "2026-08-20",
 },
+
 ];

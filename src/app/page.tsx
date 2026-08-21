@@ -32,13 +32,14 @@ export default function Home() {
   const organizationCount = getOrganizationCount(catalog);
   const verifiedAt = getLatestVerifiedAt(catalog);
 
-  return (
+    return (
     <main className="mx-auto w-full max-w-4xl flex-1 px-6 py-10 sm:py-14">
+      {/* Hero */}
       <section className="max-w-2xl">
-        <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
+        <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
           Models first
         </p>
-        <h1 className="mt-3 text-3xl font-medium tracking-tight text-balance sm:text-4xl">
+        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
           A public ledger of notable AI model releases.
         </h1>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground text-pretty">
@@ -46,14 +47,22 @@ export default function Home() {
           signal, not completeness. The catalog is typed so later categories can
           be added without rewriting the core model.
         </p>
-        <p className="mt-6 font-mono text-xs text-muted-foreground">
-          {catalog.length} releases · {organizationCount} organizations
-          {verifiedAt ? ` · Verified ${formatIsoDate(verifiedAt)}` : null}
-        </p>
+        <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-muted-foreground">
+          <span>{catalog.length} releases</span>
+          <span className="text-border">·</span>
+          <span>{organizationCount} organizations</span>
+          {verifiedAt ? (
+            <>
+              <span className="text-border">·</span>
+              <span>Verified {formatIsoDate(verifiedAt)}</span>
+            </>
+          ) : null}
+        </div>
       </section>
 
-      <section className="mt-12" aria-labelledby="latest-heading">
-        <div className="flex items-baseline justify-between gap-4">
+      {/* Latest */}
+      <section className="mt-14" aria-labelledby="latest-heading">
+        <div className="flex items-baseline justify-between gap-4 border-b border-border/60 pb-3">
           <h2
             id="latest-heading"
             className="text-sm font-medium tracking-tight"
@@ -62,7 +71,7 @@ export default function Home() {
           </h2>
           <p className="text-xs text-muted-foreground">Most recent first</p>
         </div>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
           {latest.length === 0 ? (
             <p className="text-sm text-muted-foreground sm:col-span-2">
               No releases recorded yet.
@@ -73,20 +82,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Catalog */}
       <section
-        className="mt-16 scroll-mt-24"
+        className="mt-20 scroll-mt-24"
         aria-labelledby="catalog-heading"
       >
-        <h2
-          id="catalog-heading"
-          className="text-sm font-medium tracking-tight"
-        >
-          Catalog
-        </h2>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Filter by lab, year, or access. Search names, organizations, and
-          summaries.
-        </p>
+        <div className="border-b border-border/60 pb-3">
+          <h2
+            id="catalog-heading"
+            className="text-sm font-medium tracking-tight"
+          >
+            Catalog
+          </h2>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Filter by lab, year, or access. Search names, organizations, and
+            summaries.
+          </p>
+        </div>
         <div className="mt-6">
           <CatalogBrowser
             entries={catalog}
@@ -97,4 +109,5 @@ export default function Home() {
       </section>
     </main>
   );
+   
 }

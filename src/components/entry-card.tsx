@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import Link from "next/link";
 import { EntryBadges } from "@/components/entry-badges";
 import {
   Card,
@@ -39,12 +39,14 @@ export function EntryCard({ entry }: EntryCardProps) {
       >
         <Card
           size="sm"
-          className="h-full bg-card/60 transition-colors hover:bg-card"
+          className="h-full border-border/70 bg-card/50 transition-all duration-200 hover:border-border hover:bg-card hover:shadow-sm"
         >
           <CardHeader>
             <div className="flex items-start justify-between gap-4">
               <div className="min-w-0">
-                <CardTitle className="text-base">{entry.name}</CardTitle>
+                <CardTitle className="text-[15px] leading-snug font-medium">
+                  {entry.name}
+                </CardTitle>
                 <CardDescription className="mt-0.5">
                   {entry.organization}
                 </CardDescription>
@@ -65,7 +67,7 @@ export function EntryCard({ entry }: EntryCardProps) {
               {entry.summary}
             </p>
             {meta.length > 0 ? (
-              <p className="mt-3 font-mono text-[11px] tracking-wide text-muted-foreground/90">
+              <p className="mt-3 font-mono text-[11px] tracking-wide text-muted-foreground/80">
                 {meta.join(" · ")}
               </p>
             ) : null}
@@ -75,3 +77,4 @@ export function EntryCard({ entry }: EntryCardProps) {
     </article>
   );
 }
+             
